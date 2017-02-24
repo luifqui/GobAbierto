@@ -1,6 +1,6 @@
 ## This is my web page
 
- [Second web page](https://github.com/luifqui/GobAbierto/edit/master/index2.md)
+ [Second web page](https://luifqui.github.io/GobAbierto/index2)
 
 You can use the [editor on GitHub](https://github.com/luifqui/GobAbierto/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
