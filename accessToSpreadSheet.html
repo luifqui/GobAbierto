@@ -30,7 +30,7 @@
 function init() {
   Tabletop.init( { key: 'https://docs.google.com/spreadsheets/d/1DuFjsXe9W2T3WliX2yD0aMUK7VP1EdEw07cxs_jveGg/pubhtml',
                    callback: function(data, tabletop) { 
-                     document.write(data);
+                     document.write(data[0].name);
                        console.log(data)
                    },
                    simpleSheet: true } )
