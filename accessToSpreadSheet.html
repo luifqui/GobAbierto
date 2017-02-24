@@ -9,12 +9,9 @@
     <button> test </button>
     <div id='con'>
     </div>
-    
-  
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 <script type='text/javascript'>    
-  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1sbyMINQHPsJctjAtMW0lCfLrcpMqoGMOJj6AN-sNQrc/pubhtml';
-
+  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1DuFjsXe9W2T3WliX2yD0aMUK7VP1EdEw07cxs_jveGg/pubhtml';
   function init() {
     Tabletop.init( { key: publicSpreadsheetUrl,
                      callback: showInfo,
@@ -23,11 +20,11 @@
 
   function showInfo(data, tabletop) {
     alert('Successfully processed!')
-    document.getElementById('con').innerHTML += data;
     console.log(data);
   }
 
   window.addEventListener('DOMContentLoaded', init)
 </script>
+
   </body>
 </html>
