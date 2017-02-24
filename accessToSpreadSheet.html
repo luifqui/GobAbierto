@@ -7,6 +7,8 @@
   <body>
     <p>Google Sheets API Quickstart</p>
     <button> test </button>
+    <div id='con'>
+    </div>
     
   
   <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
@@ -21,7 +23,7 @@
 
   function showInfo(data, tabletop) {
     alert('Successfully processed!')
-    document.write(data);
+    document.getElementById('con').innerHTML += data;
     console.log(data);
   }
 
