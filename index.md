@@ -1,5 +1,7 @@
 ## This is my web page
 
+Pagina destinada para solicitar informacion a instituciones estatales.
+
  [Second web page](https://luifqui.github.io/GobAbierto/index2)
 
 You can use the [editor on GitHub](https://github.com/luifqui/GobAbierto/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
