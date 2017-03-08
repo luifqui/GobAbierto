@@ -7,12 +7,13 @@
   <body>
     <p>Google Sheets API Quickstart</p>
     <button> test </button>
+    <input type="submit" value="submit" onclick="return loadData();" />
     <div id='demo'>
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
 <script type='text/javascript'>    
   var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1DuFjsXe9W2T3WliX2yD0aMUK7VP1EdEw07cxs_jveGg/pubhtml';
-  function init() {
+  function loadData() {
     Tabletop.init( { key: publicSpreadsheetUrl,
                      callback: showInfo,
                      simpleSheet: true } )
@@ -20,8 +21,14 @@
 
   function showInfo(data, tabletop) {
     alert('Successfully processed!')
-    document.getElementById("demo").innerHTML = data.length;
+    var list = '<ul>'
+    for( i = 0 ; i < data.length ; i++){
+      list += '<li>'+data.length + ' ' + data[i].Name + '</li>';          
+    }
+    list += '</ul>'
+    document.getElementById("demo").innerHTML = list;
     console.log(data);
+    return true;
   }
 
   window.addEventListener('DOMContentLoaded', init)
