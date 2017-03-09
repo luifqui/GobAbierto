@@ -1,38 +1,72 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Google Sheets API Quickstart</title>
-    <meta charset='utf-8' />
-  </head>
-  <body>
-    <p>Google Sheets API Quickstart</p>
-    <button onclick="loadData()">Click me</button>
-    <input type="submit" value="submit" onclick="return loadData();" />
-    <div id='demo'>
-    </div>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
-<script type='text/javascript'>    
-  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1DuFjsXe9W2T3WliX2yD0aMUK7VP1EdEw07cxs_jveGg/pubhtml';
-  function loadData() {
-    Tabletop.init( { key: publicSpreadsheetUrl,
-                     callback: showInfo,
-                     simpleSheet: true } )
-  }
 
-  function showInfo(data, tabletop) {
-    alert('Successfully processed!')
-    var list = '<ul>'
-    for( i = 0 ; i < data.length ; i++){
-      list += '<li>'+data.length + ' ' + data[i].Name + '</li>';          
-    }
-    list += '</ul>'
-    document.getElementById("demo").innerHTML = list;
-    console.log(data);
-    return true;
-  }
+<head>
+  <title>Google Sheets API Quickstart</title>
+  <meta charset='utf-8' />
+</head>
 
-  window.addEventListener('DOMContentLoaded', init)
-</script>
+<body>
+  <p>Google Sheets API Quickstart</p>
+  <button onclick="typeoflist='ul';loadData();">Click me</button>
+  <button onclick="getSelectedItemFromCombo();">Selected item</button>
 
-  </body>
+  <input type="submit" value="submit" onclick="typeoflist='ol';return loadData();" />
+  <div id='demo'>
+  </div>
+  <form id="myForm">
+    <select id="selectInst">
+    <option>Choose a Institution</option>
+  </select>
+  </form>
+  <div id='selectedIndex'>
+  </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+  <script type='text/javascript'>
+        var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1DuFjsXe9W2T3WliX2yD0aMUK7VP1EdEw07cxs_jveGg/pubhtml';
+        var typeoflist = 'ol';
+        function init() {
+
+          Tabletop.init({
+            key: publicSpreadsheetUrl,
+            callback: showInfo,
+            simpleSheet: true
+          })
+        }
+
+        var select = document.getElementById("selectInst");
+
+        function showInfo(data, tabletop) {
+          //var list = '<'+typeoflist+'>';
+          for (i = 0; i < data.length; i++) {
+            //  list += '<li>'+data.length + ' ' + Sheet1.Name.data[i] + '</li>';          
+            //}
+            //list += '</'+typeoflist+'>';
+            //document.getElementById("demo").innerHTML = list;
+            //console.log(data);
+            var el = document.createElement("option");
+            el.textContent = data[i].Institucion;
+            el.value = data[i].Direccion;
+            select.appendChild(el);
+          }
+          return true;
+        }
+
+       
+
+        window.addEventListener('DOMContentLoaded', init)
+
+  </script>
+  <script>
+      function getSelectedItemFromCombo(){
+
+           var sel = document.getElementById('selectInst');
+           document.getElementById("selectedIndex").innerHTML = sel.value;
+
+        }
+
+  </script>
+
+</body>
+
 </html>
